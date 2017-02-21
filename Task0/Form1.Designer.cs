@@ -76,9 +76,9 @@
             this.ZeroOne.Name = "ZeroOne";
             this.ZeroOne.Size = new System.Drawing.Size(103, 17);
             this.ZeroOne.TabIndex = 2;
-            this.ZeroOne.TabStop = true;
             this.ZeroOne.Text = "Сигнал из 0 и 1";
             this.ZeroOne.UseVisualStyleBackColor = true;
+            this.ZeroOne.CheckedChanged += new System.EventHandler(this.ZeroOne_CheckedChanged);
             // 
             // OneMinus
             // 
@@ -87,9 +87,9 @@
             this.OneMinus.Name = "OneMinus";
             this.OneMinus.Size = new System.Drawing.Size(106, 17);
             this.OneMinus.TabIndex = 3;
-            this.OneMinus.TabStop = true;
             this.OneMinus.Text = "Сигнал из 1 и -1";
             this.OneMinus.UseVisualStyleBackColor = true;
+            this.OneMinus.CheckedChanged += new System.EventHandler(this.OneMinus_CheckedChanged);
             // 
             // Interval
             // 
@@ -98,9 +98,9 @@
             this.Interval.Name = "Interval";
             this.Interval.Size = new System.Drawing.Size(85, 17);
             this.Interval.TabIndex = 4;
-            this.Interval.TabStop = true;
             this.Interval.Text = "В интервал:";
             this.Interval.UseVisualStyleBackColor = true;
+            this.Interval.CheckedChanged += new System.EventHandler(this.Interval_CheckedChanged);
             // 
             // From
             // 
@@ -232,6 +232,7 @@
             this.Scale.TabIndex = 9;
             this.Scale.Text = "Масштабировать";
             this.Scale.UseSelectable = true;
+            this.Scale.Click += new System.EventHandler(this.Scale_Click);
             // 
             // metroPanel2
             // 
