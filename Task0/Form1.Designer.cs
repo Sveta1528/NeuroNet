@@ -38,15 +38,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CurrentColor = new System.Windows.Forms.PictureBox();
             this.Scale = new MetroFramework.Controls.MetroButton();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.Color = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.InputPicture)).BeginInit();
             this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrentColor)).BeginInit();
             this.metroPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Color)).BeginInit();
             this.SuspendLayout();
             // 
             // Load
@@ -67,6 +67,7 @@
             this.InputPicture.Size = new System.Drawing.Size(100, 100);
             this.InputPicture.TabIndex = 1;
             this.InputPicture.TabStop = false;
+            this.InputPicture.MouseClick += new System.Windows.Forms.MouseEventHandler(this.InputPicture_MouseClick);
             // 
             // ZeroOne
             // 
@@ -183,7 +184,7 @@
             // 
             this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.metroPanel1.Controls.Add(this.label3);
-            this.metroPanel1.Controls.Add(this.Color);
+            this.metroPanel1.Controls.Add(this.CurrentColor);
             this.metroPanel1.Controls.Add(this.Scale);
             this.metroPanel1.Controls.Add(this.label1);
             this.metroPanel1.Controls.Add(this.To);
@@ -203,6 +204,24 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Цвет фона:";
+            // 
+            // CurrentColor
+            // 
+            this.CurrentColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CurrentColor.Location = new System.Drawing.Point(91, 9);
+            this.CurrentColor.Name = "CurrentColor";
+            this.CurrentColor.Size = new System.Drawing.Size(25, 23);
+            this.CurrentColor.TabIndex = 10;
+            this.CurrentColor.TabStop = false;
             // 
             // Scale
             // 
@@ -229,24 +248,6 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
-            // Color
-            // 
-            this.Color.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Color.Location = new System.Drawing.Point(91, 9);
-            this.Color.Name = "Color";
-            this.Color.Size = new System.Drawing.Size(25, 23);
-            this.Color.TabIndex = 10;
-            this.Color.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Цвет фона:";
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog";
@@ -263,8 +264,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputPicture)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CurrentColor)).EndInit();
             this.metroPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Color)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -283,7 +284,7 @@
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroButton Scale;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox Color;
+        private System.Windows.Forms.PictureBox CurrentColor;
         private MetroFramework.Controls.MetroPanel metroPanel2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
