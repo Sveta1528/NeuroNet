@@ -64,30 +64,30 @@ namespace Task0
 
         private void ZeroOne_CheckedChanged(object sender, EventArgs e)
         {
-            if (_background != Color.Empty) Scale.Enabled = true;
             _from = 0;
             _to = 1;
             From.Enabled = false;
             To.Enabled = false;
+            _interval = false;
         }
 
         private void OneMinus_CheckedChanged(object sender, EventArgs e)
         {
-            if (_background != Color.Empty) Scale.Enabled = true;
             _from = -1;
             _to = 1;
             From.Enabled = false;
             To.Enabled = false;
+            _interval = false;
         }
 
         private void Interval_CheckedChanged(object sender, EventArgs e)
         {
-            if (_background != Color.Empty) Scale.Enabled = true;
             From.Enabled = true;
             To.Enabled = true;
+            _interval = true;
         }
 
-        private void Scale_Click(object sender, EventArgs e)
+        private void WithoutInterval()
         {
             var grayImg = RGBtoGray(image);
             _background = ColorToGray(_background);
@@ -98,8 +98,8 @@ namespace Task0
                 for (int x = 0; x < img.Width; ++x)
                 {
                     Color color = img.GetPixel(x, y);
-                    if ( Math.Abs(color.R - _background.R) < 10 & 
-                         Math.Abs(color.G - _background.G) < 10 & 
+                    if (Math.Abs(color.R - _background.R) < 10 &
+                         Math.Abs(color.G - _background.G) < 10 &
                          Math.Abs(color.B - _background.B) < 10)
                     {
                         img.SetPixel(x, y, Color.White);
@@ -116,6 +116,39 @@ namespace Task0
             }
             textFile.Close();
             Result.Image = img;
+        }
+
+        private void WithInterval()
+        {
+            var grayImg = RGBtoGray(image);
+            _background = ColorToGray(_background);
+            System.IO.StreamWriter textFile = new System.IO.StreamWriter(@"..\..\result.txt");
+            var img = new Bitmap(grayImg);
+            var from=Double.Parse(From.Text);
+            var to = Double.Parse(To.Text);
+            double step = Math.Abs(to - from)/255;
+            for (int y = 0; y < img.Height; ++y)
+            {
+                for (int x = 0; x < img.Width; ++x)
+                {
+                    Color color = img.GetPixel(x, y);
+                    double res = Math.Round(from+color.R*step, 2);
+                    textFile.Write(res.ToString()+" ");
+
+                }
+                textFile.WriteLine();
+            }
+            textFile.Close();
+            Result.Image = img;
+        }
+
+
+        private void Scale_Click(object sender, EventArgs e)
+        {
+            if (_interval)
+                WithInterval();
+            else
+                WithoutInterval();
         }
     }
 }

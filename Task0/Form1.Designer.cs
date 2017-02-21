@@ -120,7 +120,8 @@
             this.From.CustomButton.UseSelectable = true;
             this.From.CustomButton.Visible = false;
             this.From.Enabled = false;
-            this.From.Lines = new string[0];
+            this.From.Lines = new string[] {
+        "0,5"};
             this.From.Location = new System.Drawing.Point(46, 92);
             this.From.MaxLength = 32767;
             this.From.Name = "From";
@@ -131,6 +132,7 @@
             this.From.SelectionStart = 0;
             this.From.Size = new System.Drawing.Size(31, 23);
             this.From.TabIndex = 5;
+            this.From.Text = "0,5";
             this.From.UseSelectable = true;
             this.From.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.From.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -150,7 +152,8 @@
             this.To.CustomButton.UseSelectable = true;
             this.To.CustomButton.Visible = false;
             this.To.Enabled = false;
-            this.To.Lines = new string[0];
+            this.To.Lines = new string[] {
+        "1"};
             this.To.Location = new System.Drawing.Point(111, 90);
             this.To.MaxLength = 32767;
             this.To.Name = "To";
@@ -161,6 +164,7 @@
             this.To.SelectionStart = 0;
             this.To.Size = new System.Drawing.Size(31, 23);
             this.To.TabIndex = 6;
+            this.To.Text = "1";
             this.To.UseSelectable = true;
             this.To.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.To.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -248,7 +252,6 @@
             // 
             // Scale
             // 
-            this.Scale.Enabled = false;
             this.Scale.Location = new System.Drawing.Point(16, 125);
             this.Scale.Name = "Scale";
             this.Scale.Size = new System.Drawing.Size(124, 39);
