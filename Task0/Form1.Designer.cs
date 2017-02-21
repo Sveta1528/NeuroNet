@@ -38,6 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Result = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.CurrentColor = new System.Windows.Forms.PictureBox();
             this.Scale = new MetroFramework.Controls.MetroButton();
@@ -45,6 +47,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.InputPicture)).BeginInit();
             this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Result)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentColor)).BeginInit();
             this.metroPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -183,6 +186,8 @@
             // metroPanel1
             // 
             this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.label4);
+            this.metroPanel1.Controls.Add(this.Result);
             this.metroPanel1.Controls.Add(this.label3);
             this.metroPanel1.Controls.Add(this.CurrentColor);
             this.metroPanel1.Controls.Add(this.Scale);
@@ -198,12 +203,30 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(165, 30);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(159, 183);
+            this.metroPanel1.Size = new System.Drawing.Size(283, 183);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Orange;
             this.metroPanel1.TabIndex = 9;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(181, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Результат:";
+            // 
+            // Result
+            // 
+            this.Result.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Result.Location = new System.Drawing.Point(163, 42);
+            this.Result.Name = "Result";
+            this.Result.Size = new System.Drawing.Size(100, 100);
+            this.Result.TabIndex = 12;
+            this.Result.TabStop = false;
             // 
             // label3
             // 
@@ -257,7 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 227);
+            this.ClientSize = new System.Drawing.Size(473, 227);
             this.Controls.Add(this.metroPanel2);
             this.Controls.Add(this.metroPanel1);
             this.Name = "Form1";
@@ -265,6 +288,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.InputPicture)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Result)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentColor)).EndInit();
             this.metroPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -288,6 +312,8 @@
         private System.Windows.Forms.PictureBox CurrentColor;
         private MetroFramework.Controls.MetroPanel metroPanel2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox Result;
     }
 }
 

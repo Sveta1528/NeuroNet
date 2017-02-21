@@ -15,7 +15,9 @@ namespace Task0
     public partial class Form1 : MetroForm
     {
         private Bitmap image;
-        private Color current = Color.Empty;
+        private Color _background = Color.Empty;
+        private bool _interval = false;
+        private int _from, _to;
 
         public Form1()
         {
@@ -36,19 +38,21 @@ namespace Task0
         private void InputPicture_MouseClick(object sender, MouseEventArgs e)
         {
             Color color = image.GetPixel(e.X, e.Y);
-            current = color;
+            _background = color;
             CurrentColor.BackColor = color;
             if (ZeroOne.Checked || OneMinus.Checked || Interval.Checked) Scale.Enabled = true;
         }
 
-        private void RGBtoGray()
+        private Bitmap RGBtoGray(Bitmap img)
         {
-            for (int x = 0; x < image.Width; ++x)
-                for (int y = 0; y < image.Height; ++y)
+            var result = new Bitmap(img);
+            for (int x = 0; x < result.Width; ++x)
+                for (int y = 0; y < result.Height; ++y)
                 {
-                    Color c = image.GetPixel(x, y);
-                    image.SetPixel(x, y, ColorToGray(c));
+                    Color c = result.GetPixel(x, y);
+                    result.SetPixel(x, y, ColorToGray(c));
                 }
+            return result;
         }
 
         private Color ColorToGray(Color c)
@@ -60,24 +64,58 @@ namespace Task0
 
         private void ZeroOne_CheckedChanged(object sender, EventArgs e)
         {
-            if (current != Color.Empty) Scale.Enabled = true; 
-
+            if (_background != Color.Empty) Scale.Enabled = true;
+            _from = 0;
+            _to = 1;
+            From.Enabled = false;
+            To.Enabled = false;
         }
 
         private void OneMinus_CheckedChanged(object sender, EventArgs e)
         {
-            if (current != Color.Empty) Scale.Enabled = true;
+            if (_background != Color.Empty) Scale.Enabled = true;
+            _from = -1;
+            _to = 1;
+            From.Enabled = false;
+            To.Enabled = false;
         }
 
         private void Interval_CheckedChanged(object sender, EventArgs e)
         {
-            if (current != Color.Empty) Scale.Enabled = true;
+            if (_background != Color.Empty) Scale.Enabled = true;
+            From.Enabled = true;
+            To.Enabled = true;
         }
 
         private void Scale_Click(object sender, EventArgs e)
         {
-            RGBtoGray();
-            current = ColorToGray(current);
+            var grayImg = RGBtoGray(image);
+            _background = ColorToGray(_background);
+            System.IO.StreamWriter textFile = new System.IO.StreamWriter(@"..\..\result.txt");
+            var img = new Bitmap(grayImg);
+            for (int y = 0; y < img.Height; ++y)
+            {
+                for (int x = 0; x < img.Width; ++x)
+                {
+                    Color color = img.GetPixel(x, y);
+                    if ( Math.Abs(color.R - _background.R) < 10 & 
+                         Math.Abs(color.G - _background.G) < 10 & 
+                         Math.Abs(color.B - _background.B) < 10)
+                    {
+                        img.SetPixel(x, y, Color.White);
+                        textFile.Write(_from.ToString());
+                    }
+                    else
+                    {
+                        img.SetPixel(x, y, Color.Black);
+                        textFile.Write(_to.ToString());
+                    }
+
+                }
+                textFile.WriteLine();
+            }
+            textFile.Close();
+            Result.Image = img;
         }
     }
 }
