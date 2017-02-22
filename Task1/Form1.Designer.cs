@@ -101,6 +101,7 @@
             this.Learn.TabIndex = 5;
             this.Learn.Text = "Обучить";
             this.Learn.UseSelectable = true;
+            this.Learn.Click += new System.EventHandler(this.Learn_Click);
             // 
             // metroPanel2
             // 
@@ -148,7 +149,8 @@
             this.PatternPath.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.PatternPath.CustomButton.UseSelectable = true;
             this.PatternPath.CustomButton.Visible = false;
-            this.PatternPath.Lines = new string[0];
+            this.PatternPath.Lines = new string[] {
+        "..\\..\\Patterns\\"};
             this.PatternPath.Location = new System.Drawing.Point(136, 37);
             this.PatternPath.MaxLength = 32767;
             this.PatternPath.Name = "PatternPath";
@@ -159,6 +161,7 @@
             this.PatternPath.SelectionStart = 0;
             this.PatternPath.Size = new System.Drawing.Size(138, 23);
             this.PatternPath.TabIndex = 8;
+            this.PatternPath.Text = "..\\..\\Patterns\\";
             this.PatternPath.UseSelectable = true;
             this.PatternPath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.PatternPath.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
