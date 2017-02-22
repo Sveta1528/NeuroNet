@@ -17,5 +17,15 @@ namespace Task1
         {
             InitializeComponent();
         }
+
+        private void Load_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OutpuyImage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
