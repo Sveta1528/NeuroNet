@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.InputImage = new System.Windows.Forms.PictureBox();
-            this.OutpuyImage = new System.Windows.Forms.PictureBox();
+            this.OutputImage = new System.Windows.Forms.PictureBox();
             this.Load = new MetroFramework.Controls.MetroButton();
             this.Hopfield = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
@@ -39,32 +39,33 @@
             this.PatternPath = new MetroFramework.Controls.MetroTextBox();
             this.Result = new MetroFramework.Controls.MetroButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.Noise = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.InputImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OutpuyImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OutputImage)).BeginInit();
             this.metroPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // InputImage
             // 
             this.InputImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.InputImage.Location = new System.Drawing.Point(18, 55);
+            this.InputImage.Location = new System.Drawing.Point(18, 69);
             this.InputImage.Name = "InputImage";
             this.InputImage.Size = new System.Drawing.Size(100, 100);
             this.InputImage.TabIndex = 0;
             this.InputImage.TabStop = false;
             // 
-            // OutpuyImage
+            // OutputImage
             // 
-            this.OutpuyImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.OutpuyImage.Location = new System.Drawing.Point(291, 51);
-            this.OutpuyImage.Name = "OutpuyImage";
-            this.OutpuyImage.Size = new System.Drawing.Size(100, 100);
-            this.OutpuyImage.TabIndex = 1;
-            this.OutpuyImage.TabStop = false;
+            this.OutputImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.OutputImage.Location = new System.Drawing.Point(293, 69);
+            this.OutputImage.Name = "OutputImage";
+            this.OutputImage.Size = new System.Drawing.Size(100, 100);
+            this.OutputImage.TabIndex = 1;
+            this.OutputImage.TabStop = false;
             // 
             // Load
             // 
-            this.Load.Location = new System.Drawing.Point(18, 12);
+            this.Load.Location = new System.Drawing.Point(18, 26);
             this.Load.Name = "Load";
             this.Load.Size = new System.Drawing.Size(100, 33);
             this.Load.TabIndex = 2;
@@ -96,17 +97,18 @@
             // 
             this.Learn.Location = new System.Drawing.Point(136, 108);
             this.Learn.Name = "Learn";
-            this.Learn.Size = new System.Drawing.Size(138, 38);
+            this.Learn.Size = new System.Drawing.Size(138, 33);
             this.Learn.TabIndex = 5;
             this.Learn.Text = "Обучить";
             this.Learn.UseSelectable = true;
             // 
             // metroPanel2
             // 
+            this.metroPanel2.Controls.Add(this.Noise);
             this.metroPanel2.Controls.Add(this.metroLabel1);
             this.metroPanel2.Controls.Add(this.InputImage);
             this.metroPanel2.Controls.Add(this.PatternPath);
-            this.metroPanel2.Controls.Add(this.OutpuyImage);
+            this.metroPanel2.Controls.Add(this.OutputImage);
             this.metroPanel2.Controls.Add(this.Result);
             this.metroPanel2.Controls.Add(this.Learn);
             this.metroPanel2.Controls.Add(this.Hopfield);
@@ -117,7 +119,7 @@
             this.metroPanel2.HorizontalScrollbarSize = 10;
             this.metroPanel2.Location = new System.Drawing.Point(27, 31);
             this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(407, 165);
+            this.metroPanel2.Size = new System.Drawing.Size(407, 195);
             this.metroPanel2.TabIndex = 7;
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
@@ -163,26 +165,36 @@
             // 
             // Result
             // 
-            this.Result.Location = new System.Drawing.Point(291, 12);
+            this.Result.Location = new System.Drawing.Point(293, 26);
             this.Result.Name = "Result";
             this.Result.Size = new System.Drawing.Size(100, 33);
             this.Result.TabIndex = 3;
             this.Result.Text = "Результат";
             this.Result.UseSelectable = true;
+            this.Result.Click += new System.EventHandler(this.Result_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // Noise
+            // 
+            this.Noise.Location = new System.Drawing.Point(136, 147);
+            this.Noise.Name = "Noise";
+            this.Noise.Size = new System.Drawing.Size(138, 33);
+            this.Noise.TabIndex = 10;
+            this.Noise.Text = "Зашумить";
+            this.Noise.UseSelectable = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 215);
+            this.ClientSize = new System.Drawing.Size(462, 239);
             this.Controls.Add(this.metroPanel2);
             this.Name = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.InputImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OutpuyImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OutputImage)).EndInit();
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
             this.ResumeLayout(false);
@@ -192,7 +204,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox InputImage;
-        private System.Windows.Forms.PictureBox OutpuyImage;
+        private System.Windows.Forms.PictureBox OutputImage;
         private MetroFramework.Controls.MetroButton Load;
         private MetroFramework.Controls.MetroRadioButton Hopfield;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
@@ -202,6 +214,7 @@
         private MetroFramework.Controls.MetroTextBox PatternPath;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private MetroFramework.Controls.MetroButton Noise;
     }
 }
 

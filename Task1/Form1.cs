@@ -14,6 +14,8 @@ namespace Task1
     public partial class Form1 : MetroForm
     {
         private Bitmap in_img;
+        private Color back_color;
+        private BitmapManipulation BM = new BitmapManipulation();
         public Form1()
         {
             InitializeComponent();
@@ -27,9 +29,12 @@ namespace Task1
                     return;
                 in_img = new Bitmap(openFileDialog1.FileName);
                 InputImage.Image = in_img;
+                back_color = in_img.GetPixel(0, 0);
             }
         }
 
-
+        private void Result_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
