@@ -13,6 +13,7 @@ namespace Task1
 {
     public partial class Form1 : MetroForm
     {
+        private Bitmap in_img;
         public Form1()
         {
             InitializeComponent();
@@ -20,12 +21,15 @@ namespace Task1
 
         private void Load_Click(object sender, EventArgs e)
         {
-
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if (openFileDialog1.FileName == "")
+                    return;
+                in_img = new Bitmap(openFileDialog1.FileName);
+                InputImage.Image = in_img;
+            }
         }
 
-        private void OutpuyImage_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

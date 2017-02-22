@@ -35,9 +35,10 @@
             this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.Learn = new MetroFramework.Controls.MetroButton();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.Result = new MetroFramework.Controls.MetroButton();
-            this.PatternPath = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.PatternPath = new MetroFramework.Controls.MetroTextBox();
+            this.Result = new MetroFramework.Controls.MetroButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.InputImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OutpuyImage)).BeginInit();
             this.metroPanel2.SuspendLayout();
@@ -60,7 +61,6 @@
             this.OutpuyImage.Size = new System.Drawing.Size(100, 100);
             this.OutpuyImage.TabIndex = 1;
             this.OutpuyImage.TabStop = false;
-            this.OutpuyImage.Click += new System.EventHandler(this.OutpuyImage_Click);
             // 
             // Load
             // 
@@ -123,14 +123,14 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
-            // Result
+            // metroLabel1
             // 
-            this.Result.Location = new System.Drawing.Point(291, 12);
-            this.Result.Name = "Result";
-            this.Result.Size = new System.Drawing.Size(100, 33);
-            this.Result.TabIndex = 3;
-            this.Result.Text = "Результат";
-            this.Result.UseSelectable = true;
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(136, 15);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(121, 19);
+            this.metroLabel1.TabIndex = 9;
+            this.metroLabel1.Text = "Путь до образцов:";
             // 
             // PatternPath
             // 
@@ -161,14 +161,18 @@
             this.PatternPath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.PatternPath.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabel1
+            // Result
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(136, 15);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(121, 19);
-            this.metroLabel1.TabIndex = 9;
-            this.metroLabel1.Text = "Путь до образцов:";
+            this.Result.Location = new System.Drawing.Point(291, 12);
+            this.Result.Name = "Result";
+            this.Result.Size = new System.Drawing.Size(100, 33);
+            this.Result.TabIndex = 3;
+            this.Result.Text = "Результат";
+            this.Result.UseSelectable = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -197,6 +201,7 @@
         private MetroFramework.Controls.MetroButton Result;
         private MetroFramework.Controls.MetroTextBox PatternPath;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
