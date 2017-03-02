@@ -31,15 +31,12 @@
             this.InputImage = new System.Windows.Forms.PictureBox();
             this.OutputImage = new System.Windows.Forms.PictureBox();
             this.Load = new MetroFramework.Controls.MetroButton();
-            this.Hopfield = new MetroFramework.Controls.MetroRadioButton();
-            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.Learn = new MetroFramework.Controls.MetroButton();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.PatternPath = new MetroFramework.Controls.MetroTextBox();
             this.Result = new MetroFramework.Controls.MetroButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.Noise = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.InputImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OutputImage)).BeginInit();
             this.metroPanel2.SuspendLayout();
@@ -73,29 +70,9 @@
             this.Load.UseSelectable = true;
             this.Load.Click += new System.EventHandler(this.Load_Click);
             // 
-            // Hopfield
-            // 
-            this.Hopfield.AutoSize = true;
-            this.Hopfield.Location = new System.Drawing.Point(136, 66);
-            this.Hopfield.Name = "Hopfield";
-            this.Hopfield.Size = new System.Drawing.Size(107, 15);
-            this.Hopfield.TabIndex = 3;
-            this.Hopfield.Text = "Сеть Хопфилда";
-            this.Hopfield.UseSelectable = true;
-            // 
-            // metroRadioButton1
-            // 
-            this.metroRadioButton1.AutoSize = true;
-            this.metroRadioButton1.Location = new System.Drawing.Point(136, 87);
-            this.metroRadioButton1.Name = "metroRadioButton1";
-            this.metroRadioButton1.Size = new System.Drawing.Size(107, 15);
-            this.metroRadioButton1.TabIndex = 4;
-            this.metroRadioButton1.Text = "Сеть Хемминга";
-            this.metroRadioButton1.UseSelectable = true;
-            // 
             // Learn
             // 
-            this.Learn.Location = new System.Drawing.Point(136, 108);
+            this.Learn.Location = new System.Drawing.Point(136, 118);
             this.Learn.Name = "Learn";
             this.Learn.Size = new System.Drawing.Size(138, 33);
             this.Learn.TabIndex = 5;
@@ -105,15 +82,12 @@
             // 
             // metroPanel2
             // 
-            this.metroPanel2.Controls.Add(this.Noise);
             this.metroPanel2.Controls.Add(this.metroLabel1);
             this.metroPanel2.Controls.Add(this.InputImage);
             this.metroPanel2.Controls.Add(this.PatternPath);
             this.metroPanel2.Controls.Add(this.OutputImage);
             this.metroPanel2.Controls.Add(this.Result);
             this.metroPanel2.Controls.Add(this.Learn);
-            this.metroPanel2.Controls.Add(this.Hopfield);
-            this.metroPanel2.Controls.Add(this.metroRadioButton1);
             this.metroPanel2.Controls.Add(this.Load);
             this.metroPanel2.HorizontalScrollbarBarColor = true;
             this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
@@ -129,7 +103,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(136, 15);
+            this.metroLabel1.Location = new System.Drawing.Point(136, 64);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(121, 19);
             this.metroLabel1.TabIndex = 9;
@@ -151,7 +125,7 @@
             this.PatternPath.CustomButton.Visible = false;
             this.PatternPath.Lines = new string[] {
         "..\\..\\Patterns\\"};
-            this.PatternPath.Location = new System.Drawing.Point(136, 37);
+            this.PatternPath.Location = new System.Drawing.Point(136, 86);
             this.PatternPath.MaxLength = 32767;
             this.PatternPath.Name = "PatternPath";
             this.PatternPath.PasswordChar = '\0';
@@ -180,20 +154,11 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // Noise
-            // 
-            this.Noise.Location = new System.Drawing.Point(136, 147);
-            this.Noise.Name = "Noise";
-            this.Noise.Size = new System.Drawing.Size(138, 33);
-            this.Noise.TabIndex = 10;
-            this.Noise.Text = "Зашумить";
-            this.Noise.UseSelectable = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 239);
+            this.ClientSize = new System.Drawing.Size(450, 239);
             this.Controls.Add(this.metroPanel2);
             this.Name = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.InputImage)).EndInit();
@@ -209,15 +174,12 @@
         private System.Windows.Forms.PictureBox InputImage;
         private System.Windows.Forms.PictureBox OutputImage;
         private MetroFramework.Controls.MetroButton Load;
-        private MetroFramework.Controls.MetroRadioButton Hopfield;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
         private MetroFramework.Controls.MetroButton Learn;
         private MetroFramework.Controls.MetroPanel metroPanel2;
         private MetroFramework.Controls.MetroButton Result;
         private MetroFramework.Controls.MetroTextBox PatternPath;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private MetroFramework.Controls.MetroButton Noise;
     }
 }
 

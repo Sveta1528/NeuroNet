@@ -21,6 +21,7 @@ namespace Task1
             size = patterns[0].Length;
             W = new int[size, size];
             SetWeightMatrix();
+            System.IO.StreamWriter matrix = new System.IO.StreamWriter(@"..\..\matrix.txt");
         }
 
         public void SetWeightMatrix()
@@ -31,7 +32,7 @@ namespace Task1
                     var sum = 0;
                     for (int k = 0; k < count; k++)
                         sum += patterns[k][i] * patterns[k][j];
-                    W[i, j] = sum / size;
+                    W[i, j] = sum;
                 }
 
             for (int i = 0; i < size; i++)
@@ -45,41 +46,37 @@ namespace Task1
 
         private bool HammingDistance(ref int[] x, ref int[] y, double eps)
         {
-            int n = x.Length;
-            int sum = 0;
-            for (int i = 0; i < n; i++)
+            double sum = 0;
+            for (int i = 0; i < size; i++)
                 sum += x[i]*y[i];
-            return 1 / 2 * (n - sum) < eps;
+            double diff = 0.5*(size - sum);
+            return diff < eps;
         }
 
 
         public int[] Recognize(ref int[] input)
         {
-            int[] first = input;
-            int[] second = first;
-            //int[] third = second;
+            int[] prev = input;
+            int[] cur = prev;
 
             bool flag = true;
 
             while (true)
-            { 
+            {
 
-                for (int i = 0; i < size; i++)
-                    for (int j = 0; j < size; j++)
-                        second[i] += W[i, j] * first[j];
+                for (int j = 0; j < size; j++)
+                {
+                    for (int i = 0; i < size; i++)
+                        cur[j] += W[i, j]*prev[i];
+                    cur[j] = ThresholdFunction(cur[j]);
+                }
 
-                for (int i = 0; i < size; i++)
-                    second[i] = ThresholdFunction(second[i]);
-
-
-                flag = HammingDistance(ref first, ref second, 0.00001);
-                if (flag) return second;
-                //if (first==third) return third;
-                first = second;
-                //second = third;
+                flag = HammingDistance(ref cur, ref prev, 10);
+                if (flag) return cur;
+                prev = cur;
             }
+        }
 
         }
 
     }
-}

@@ -34,22 +34,17 @@ namespace Task1
             ColorToGray(ref background);
             int w = img.Width, h = img.Height, size = w*h;
             int index = 0;
+            int module = 30;
             for (int y = 0; y < h; ++y)
                 for (int x = 0; x < w; ++x)
                 {
                     Color color = img.GetPixel(x, y);
-                    if (Math.Abs(color.R - background.R) < 10 &
-                        Math.Abs(color.G - background.G) < 10 &
-                        Math.Abs(color.B - background.B) < 10)
-                    {
-                        //img.SetPixel(x, y, Color.White);
+                    if (Math.Abs(color.R - background.R) < module &
+                        Math.Abs(color.G - background.G) < module &
+                        Math.Abs(color.B - background.B) < module)
                         res[index] = -1;
-                    }
                     else
-                    {
-                        //img.SetPixel(x, y, Color.Black);
                         res[index] = 1;
-                    }
                     index++;
 
                 }
