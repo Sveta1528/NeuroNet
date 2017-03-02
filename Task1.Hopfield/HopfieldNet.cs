@@ -39,10 +39,7 @@ namespace Task1
                 W[i, i] = 0;
         }
 
-        private int ThresholdFunction(int x)
-        {
-            return x >= 0 ? 1 : -1;
-        }
+        private int ThresholdFunction(int x) => x >= 0 ? 1 : -1;
 
         private bool HammingDistance(ref int[] x, ref int[] y, double eps)
         {
@@ -59,8 +56,6 @@ namespace Task1
             int[] prev = input;
             int[] cur = prev;
 
-            bool flag = true;
-
             while (true)
             {
 
@@ -71,8 +66,7 @@ namespace Task1
                     cur[j] = ThresholdFunction(cur[j]);
                 }
 
-                flag = HammingDistance(ref cur, ref prev, 10);
-                if (flag) return cur;
+                if (HammingDistance(ref cur, ref prev, 10))  return cur;
                 prev = cur;
             }
         }
