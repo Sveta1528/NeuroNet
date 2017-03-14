@@ -63,8 +63,7 @@ namespace Task1
         private void Learn_Click(object sender, EventArgs e)
         {
             CreatePatternsList();
-            hopfield_net = new HopfieldNet(ref patterns);
-                
+            hopfield_net = new HopfieldNet(ref patterns); 
         }
     }
 }

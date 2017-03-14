@@ -21,7 +21,6 @@ namespace Task1
             size = patterns[0].Length;
             W = new int[size, size];
             SetWeightMatrix();
-            System.IO.StreamWriter matrix = new System.IO.StreamWriter(@"..\..\matrix.txt");
         }
 
         public void SetWeightMatrix()

@@ -18,6 +18,7 @@ namespace Task1
         private Color back_color;
         private BitmapManipulation BM = new BitmapManipulation();
         private List<int[]> patterns = new List<int[]>();
+        private HammingNet hamming_net;
 
         public Form1()
         {
@@ -53,17 +54,17 @@ namespace Task1
             int w = in_img.Width, h = in_img.Height;
             int[] input = new int[w* h];
             BM.BitmapToArray(ref in_img, in_img.GetPixel(0, 0), ref input);
-            //int [] res =hopfield_net.Recognize(ref input);
+            int res = hamming_net.Recognize(ref input);
+            var vec = patterns[res];
             Bitmap result = new Bitmap(in_img);
-            //BM.ArrayToBitmap(ref res,w,h,ref result);
+            BM.ArrayToBitmap(ref vec,w,h,ref result);
             OutputImage.Image = result;
         }
 
         private void Learn_Click(object sender, EventArgs e)
         {
             CreatePatternsList();
-            //hopfield_net = new HopfieldNet(ref patterns);
-                
+            hamming_net = new HammingNet(ref patterns);  
         }
     }
 }
